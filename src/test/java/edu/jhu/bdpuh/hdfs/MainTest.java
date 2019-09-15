@@ -11,7 +11,14 @@ import java.io.IOException;
 class MainTest {
     Main main;
 
-     @Test
+    @Test
+    public void testDefaultFS() {
+        String defaultFS = main.getDefaultFS();
+        assertNotNull(defaultFS);
+        System.out.printf("fs.defaultFS: %s\n", defaultFS);
+    }
+
+    @Test
     public void testHello() throws IOException {
         assertEquals(this.main.sayHello(), Main.HelloMessage);
     }
