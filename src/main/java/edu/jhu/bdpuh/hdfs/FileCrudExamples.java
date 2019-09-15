@@ -6,10 +6,9 @@ import org.apache.hadoop.util.Progressable;
 
 import java.io.IOException;
 
-import static org.apache.commons.io.IOUtils.EOF;
 import static org.apache.commons.io.IOUtils.buffer;
 
-public class Main {
+public class FileCrudExamples {
     Configuration conf = new Configuration();
     FileSystem fileSystem = null;
     static final String HelloMessage = "Hello HDFS world!";
@@ -179,28 +178,28 @@ public class Main {
     public static void main(String[] args) throws IOException {
         String recordsFilename = "/records.txt";
         String metricsFilename = "/metrics.txt";
-        Main main = new Main();
-        main.addConfigs();
-        System.out.println(main.sayHello());
-        System.out.printf("fs.defaultFS: %s\n", main.getDefaultFS());
-        main.openFileSystem();
+        FileCrudExamples fileCrudExamples = new FileCrudExamples();
+        fileCrudExamples.addConfigs();
+        System.out.println(fileCrudExamples.sayHello());
+        System.out.printf("fs.defaultFS: %s\n", fileCrudExamples.getDefaultFS());
+        fileCrudExamples.openFileSystem();
         System.out.println("**** Create a file example ****");
-        main.createFile(recordsFilename);
+        fileCrudExamples.createFile(recordsFilename);
         System.out.println("**** Read a file example ****");
-        main.readFile(recordsFilename);
+        fileCrudExamples.readFile(recordsFilename);
         System.out.println("**** Read a file twice example ****");
-        main.readFileTwice(recordsFilename);
+        fileCrudExamples.readFileTwice(recordsFilename);
         System.out.println("**** Append to a file example ****");
-        main.appendToFile(recordsFilename);
-        main.readFile(recordsFilename);
+        fileCrudExamples.appendToFile(recordsFilename);
+        fileCrudExamples.readFile(recordsFilename);
         System.out.println("**** Delete file example ****");
-        main.deleteFile(recordsFilename);
+        fileCrudExamples.deleteFile(recordsFilename);
         System.out.println("**** Rename file example ****");
-        main.createFile(recordsFilename);
-        main.renameFile(recordsFilename, metricsFilename);
+        fileCrudExamples.createFile(recordsFilename);
+        fileCrudExamples.renameFile(recordsFilename, metricsFilename);
         System.out.println("**** Progressable write example ****");
-        main.doProgressableWrite(recordsFilename);
+        fileCrudExamples.doProgressableWrite(recordsFilename);
         System.out.println("Closing the filesytem");
-        main.closeFileSystem();
+        fileCrudExamples.closeFileSystem();
     }
 }

@@ -8,23 +8,23 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-class MainTest {
-    Main main;
+class FileCrudExamplesTest {
+    FileCrudExamples fileCrudExamples;
 
     @Test
     public void testDefaultFS() {
-        String defaultFS = main.getDefaultFS();
+        String defaultFS = fileCrudExamples.getDefaultFS();
         assertNotNull(defaultFS);
         System.out.printf("fs.defaultFS: %s\n", defaultFS);
     }
 
     @Test
     public void testHello() throws IOException {
-        assertEquals(this.main.sayHello(), Main.HelloMessage);
+        assertEquals(this.fileCrudExamples.sayHello(), FileCrudExamples.HelloMessage);
     }
 
     @BeforeEach
     void setUp() throws IOException {
-        main = new Main();
+        fileCrudExamples = new FileCrudExamples();
     }
 }
