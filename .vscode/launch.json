@@ -1,0 +1,47 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SerDeExamples",
+            "request": "launch",
+            "mainClass": "edu.jhu.bdpuh.hdfs.SerDeExamples",
+            "projectName": "module4-code"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CodecExamples",
+            "request": "launch",
+            "mainClass": "edu.jhu.bdpuh.hdfs.CodecExamples",
+            "projectName": "module4-code"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DirCrudExamples",
+            "request": "launch",
+            "mainClass": "edu.jhu.bdpuh.hdfs.DirCrudExamples",
+            "projectName": "module4-code"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FileCrudExamples",
+            "request": "launch",
+            "mainClass": "edu.jhu.bdpuh.hdfs.FileCrudExamples",
+            "projectName": "module4-code"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ParallelLocalToHdfsCopy",
+            "request": "launch",
+            "mainClass": "edu.jhu.bdpuh.hdfs.ParallelLocalToHdfsCopy",
+            "projectName": "module4-code", 
+            "args": ["/home/sean/hd-work/module4-code", "/destination", "5"]
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "edu.jhu.bdpuh.hdfs.Main",
+            "projectName": "module4-code"
+        }
+    ]
+}

@@ -31,7 +31,7 @@ public class FileCrudExamples {
     // get an output stream, will overwrite by default
     FSDataOutputStream getOutputStream(String filename) throws IOException {
         Path filePath = new Path(filename);
-        if(this.fileSystem != null)
+        if (this.fileSystem != null)
             return this.fileSystem.create(filePath);
         return null;
     }
@@ -39,7 +39,7 @@ public class FileCrudExamples {
     // get an input stream
     FSDataInputStream getInputStream(String filename) throws IOException {
         Path filePath = new Path(filename);
-        if(this.fileSystem != null && this.fileSystem.exists(filePath))
+        if (this.fileSystem != null && this.fileSystem.exists(filePath))
             return this.fileSystem.open(filePath);
         return null;
     }
@@ -68,7 +68,7 @@ public class FileCrudExamples {
         int nRead;
         while ((nRead = fsDataInputStream.read(bytes)) > 0) {
             String s = new String(bytes);
-            System.out.printf("%s", new String(bytes).substring(0,nRead));
+            System.out.printf("%s", new String(bytes).substring(0, nRead));
         }
     }
 
@@ -77,7 +77,7 @@ public class FileCrudExamples {
         // Get a FileSystem Object
         openFileSystem();
 
-       // Open a File for Reading
+        // Open a File for Reading
         FSDataInputStream fsDataInputStream = getInputStream(filename);
 
         // Read all characters from file
@@ -125,7 +125,7 @@ public class FileCrudExamples {
 
     public void deleteFile(String filename) throws IOException {
         Path filePath = new Path(filename);
-        if(this.fileSystem != null && this.fileSystem.exists(filePath)) {
+        if (this.fileSystem != null && this.fileSystem.exists(filePath)) {
             System.out.println("Deleting file");
             this.fileSystem.delete(filePath, false);
         }
@@ -134,7 +134,7 @@ public class FileCrudExamples {
     public void renameFile(String fromFile, String toFile) throws IOException {
         Path fromPath = new Path(fromFile);
         Path toPath = new Path(toFile);
-        if(this.fileSystem != null && this.fileSystem.exists(fromPath)) {
+        if (this.fileSystem != null && this.fileSystem.exists(fromPath)) {
             System.out.printf("Renaming %s to %s\n", fromFile, toFile);
             this.fileSystem.rename(fromPath, toPath);
         }
@@ -148,7 +148,7 @@ public class FileCrudExamples {
     // get a progressable output stream, will overwrite by default
     FSDataOutputStream getProgressOutputStream(String filename) throws IOException {
         Path filePath = new Path(filename);
-        if(this.fileSystem != null)
+        if (this.fileSystem != null)
             return this.fileSystem.create(filePath, new Progressable() {
                 @Override
                 public void progress() {
@@ -161,7 +161,7 @@ public class FileCrudExamples {
     public void doProgressableWrite(String filename) throws IOException {
         FSDataOutputStream fsDataOutputStream = getProgressOutputStream(filename);
         System.out.printf("Writing lines to %s", filename);
-        for(int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 10000; i++) {
             String line = String.format("Line number %08d\n", i);
             fsDataOutputStream.write(line.getBytes());
         }
@@ -169,11 +169,13 @@ public class FileCrudExamples {
         System.out.println("done");
     }
 
-    public String getDefaultFS() { return this.conf.get("fs.defaultFS"); }
+    public String getDefaultFS() {
+        return this.conf.get("fs.defaultFS");
+    }
 
     public String sayHello() {
         return HelloMessage;
-    } 
+    }
 
     public static void main(String[] args) throws IOException {
         String recordsFilename = "/records.txt";

@@ -12,7 +12,7 @@ public class DirCrudExamples extends FileCrudExamples {
         Path dir = new Path(dirname);
         // Create a Directory
         boolean status = this.fileSystem.mkdirs(dir);
-        System.out.println ("Created dir successfully: " + status);
+        System.out.println("Created dir successfully: " + status);
     }
 
     // list directory example
@@ -22,7 +22,7 @@ public class DirCrudExamples extends FileCrudExamples {
         fileStatuses = this.fileSystem.listStatus(dirToRead);
         // Read records records from the file
         for (int i = 0; i < fileStatuses.length; i++) {
-            System.out.println(fileStatuses[i].getPath().getName() + " " + (fileStatuses[i].isDir()? "dir":"file"));
+            System.out.println(fileStatuses[i].getPath().getName() + " " + (fileStatuses[i].isDir() ? "dir" : "file"));
         }
         System.out.println("Read dir successfully");
     }
@@ -33,9 +33,9 @@ public class DirCrudExamples extends FileCrudExamples {
         FileStatus[] fileStatuses = null;
         fileStatuses = fileSystem.globStatus(glob);
         for (FileStatus file : fileStatuses) {
-            System.out.println (file.getPath().getName());
+            System.out.println(file.getPath().getName());
         }
-        System.out.println ("Match File patterns successfully");
+        System.out.println("Match File patterns successfully");
     }
 
     // delete directory
@@ -43,7 +43,7 @@ public class DirCrudExamples extends FileCrudExamples {
         Path dirToDelete = new Path(dirname);
         boolean recursively = true;
         boolean status = fileSystem.delete(dirToDelete, recursively);
-        System.out.println ("Deleted dir successfully: " + status);
+        System.out.println("Deleted dir successfully: " + status);
     }
 
     public static void main(String[] args) throws IOException {
