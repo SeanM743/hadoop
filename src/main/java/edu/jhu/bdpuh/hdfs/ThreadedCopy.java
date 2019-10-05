@@ -29,12 +29,13 @@ public class ThreadedCopy implements Runnable {
 
     public void run(){
 
+        FileSystem hdfs = null;
+        FileInputStream is = null;
+        OutputStream os = null;
+        CompressionCodec compCodec = null;
+        CompressionOutputStream compOs = null;
+
         for (int i = 0; i< f.length; i++){
-            FileSystem hdfs = null;
-            FileInputStream is = null;
-            OutputStream os = null;
-            CompressionCodec compCodec = null;
-            CompressionOutputStream compOs = null;
 
             try{
                 String fname = f[i].getName();

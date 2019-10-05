@@ -34,7 +34,7 @@
             "request": "launch",
             "mainClass": "edu.jhu.bdpuh.hdfs.ParallelLocalToHdfsCopy",
             "projectName": "module4-code", 
-            "args": ["/home/sean/hd-work/module4-code", "/destination", "5"]
+            "args": ["/home/sean/hd-work/module4-code/hw4", "/destination", "5"]
         },
         {
             "type": "java",
